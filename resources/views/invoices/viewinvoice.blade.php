@@ -439,7 +439,7 @@
             <div class="clearfix"></div>
         </div>
     </div>
-</section>
+</section> 
 
 <section class="invoice-main">
     <div class="container m-auto invoice-container shadow">
@@ -448,7 +448,7 @@
                 <div class="col-6 mb-4">
                     <h1> Invoice </h1>
                     <address >
-                        <p> <b>Project:</b> {{$invoice->title}}</p>
+                        <p> <b>Project:</b> {{$projects->title}}</p>
                         <p> <b>Lancer:</b> {{auth()->user()->name}}</p>
                         <p> <b>Email:</b> {{auth()->user()->email}}</p>
                         {{-- <p> <b>Address:</b> Accra, Ghana</p> --}}
