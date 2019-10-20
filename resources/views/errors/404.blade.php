@@ -74,6 +74,10 @@
         margin-bottom: 8px;
     }
 
+    .button{
+                width: 40%;
+            }
+
     
 </style>
 @endsection
@@ -85,8 +89,8 @@
     alt="logo"></a>
 </header>
 <div class="form">
-    <h4>Oh Sorry, that page couldnt be found!!!</h4>
-    <p>Please click <a href="{{ url('/') }}">here</a> to go back to the homepage</p>
+    <h4>Oh Sorry, that page couldn't be found!!!</h4>
+    <p style="text-align:center">Please click <a href="{{ url('/') }}">here</a> to go back.</p>
     
     
 </div>
