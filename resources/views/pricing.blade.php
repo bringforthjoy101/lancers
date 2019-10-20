@@ -3,8 +3,10 @@
 
 @section('styles')
 
+
  <style>
  	.navbar-brand{
+
                 font-family: Pacifico;
                 color: white
                 }
@@ -14,16 +16,20 @@
             .navbar-brand :hover{
                 color: rgb(255, 255, 255);
             }
+
             .pricing-header{
                 background: #091429
             }
+
             .pricing-header .nav-link{
             font-size: 15px;
             color: aliceblue;
             }
+
             .navbar-collapse{
                 justify-content: flex-end
             }
+
             .pricing{
                 width: 100%;
                 padding-top: 70px;
@@ -31,9 +37,11 @@
                 padding-right: 20px;
                 padding: auto;
             }
+
             .pricing .title-header{
                 text-align: center
             }
+
             .pricing .title-header h1{ 
                 font-size: 65px;
                 padding-left: 160px;
@@ -52,16 +60,19 @@
                 width: 95%;
                 margin-left: auto;
                 margin-right: auto;
+
             }
             .pricetext{
                 text-align: center;
                 font-size: 30px;
+
             }
             .pricenumber{
                 text-align: center;
                 font-size: 48px;
                 
             }
+
             .price-button{
                 width: 100%;
                 position: absolute;
@@ -70,6 +81,7 @@
                 padding-left: 28px !important;
                 padding-right: 28px !important;
             }
+
             .pricelist{
                 list-style: none;
             }
@@ -79,19 +91,23 @@
             .pricelist li span{
                 margin: auto 5px
             }
+
             .button:hover {
                 color: white;
             }
+
             .price-button a{
                 color: #fff;
                 border: none
             }
+
             .price-button a{
                 background-color: #0ABAB5 ;
             }
             .price-button a:hover{
                 background: rgb(9, 155, 150);
             }
+
             .pricenumber::before{
                 font-size: 17px;
                 content: '\0024';
@@ -99,9 +115,11 @@
                 left: -2px;
                 top: -25px
             }
+
             .pricenumber{
                 position: relative;
             }
+
             .pricenumber p{
                 font-size: 17px;
                 display: inline;
@@ -110,16 +128,19 @@
                 background-color:#091429;
                 padding: 25px;
             }
+
             footer {
                 background-color: white;
                 padding: 25px;
             }
+
             .enter-div {
                 text-align: center;
                 color: white;
                 font-weight: normal;
                 font-style: normal;
             }
+
             .enter-div > h6 {
                 font-weight: normal;
             }
@@ -127,17 +148,20 @@
                 line-height: 65px;
             }
             #lancer {
+
             font-style: normal;
             font-weight: normal;
             font-family: 'Pacifico', cursive;
             font-size: 20px;
             }
+
             #btn-sub {
                 background: #0ABAB5;
                 border-radius: 4px;
                 border-width: 0px;
                 color: #FFFFFF;
             }
+
             #email-input {
                 background: #FFFFFF;
                 border: 1px solid #C4C4C4;
@@ -147,15 +171,18 @@
                 font-size: 0.8em;
                 padding: 5px;
                 }
+
             .btn {
                 border: 1px solid #0ABAB5 ;
                 color: #0ABAB5;
                 box-sizing: border-box;
                 border-radius: 6px;
                 }
+
             .link {
                 color: black;
             }
+
             .card {
                 background: #FFFFFF;
                 border: none;
@@ -164,6 +191,7 @@
                 margin-right: auto;
                 margin-left: auto;
             }
+
             ul {
                 padding: 0% !important;
             }
@@ -175,17 +203,21 @@
             #navbarNavAltMarkup a:hover {
                 color: #0ABAB5 !important;
             }
+
             span.avoidwrap { display:inline-block; }
+
             @media only screen and (max-width: 600px) {
                 .pricing .title-header h1{
                     font-size: 35px
                 }
+
                 .pricecol{
                     margin: 20px auto
                 }
             }
 			
  </style>
+
 @endsection
 
 @section('header')
@@ -220,7 +252,6 @@
 				</div>
 			</nav>
 		</header>
-
 @stop
 
 @section('sidebar')
@@ -229,6 +260,7 @@
 
 @section('content')
 <section class="pricing">
+
 
 <div class="container">
 <div class="title-header">
@@ -350,13 +382,14 @@ process in our able hands</h6>
 </div>
 </article>
 
+
             <div class="container">
                 <div class="title-header">
                     
                 </div>
                 <div class="row mt-5 pt-5">
 
-                @if(isset($plans) && $plans != null)
+                 @if(isset($plans) && $plans != null)
 
 @foreach($plans as $mainPlans)
 
@@ -371,9 +404,16 @@ process in our able hands</h6>
         <h5 class="pricenumber">{{ str_replace("_"," ",ucfirst($mainPlans['price']))}}<p>/mo</p></h5>
         </div>
 
+            @if($loop->index == 1)
+            <p class="m-0 text-center" style="font-size: 12px">All Starter features and</p>
+            @endif
+
+            @if($loop->index == 2)
+            <p class="m-0 text-center" style="font-size: 12px">All Starter and Pro features and</p>
+            @endif
 
             @php
-            $url = url("/payment/".$mainPlans['name']);
+            $url = url("/payment/subscription/".$mainPlans['name']);
 
             @endphp
          @foreach($mainPlans as $key => $value)
@@ -386,20 +426,22 @@ process in our able hands</h6>
                        <ul class="pricelist pt-3">
 
                               @php
-                              $FeaturesArray = json_decode($value,1);
+
+                               $FeaturesArray = $value;
                               @endphp
-                                  <h5>{{ ucfirst($key) }}</h5>
+
 
                                   @foreach($FeaturesArray as $Featureskey => $Featuresvalue)
 
                                       @php
                                       ($Featuresvalue == true) ? $Featuresvalue = "TRUE" : (($Featuresvalue == false) ? $Featuresvalue = "FALSE" : (($Featuresvalue == null) ? $Featuresvalue = "No" : "Null"));
                                       @endphp
+
                      <li>
                       <span><svg width="16" height="16" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M21 10.0857V11.0057C20.9988 13.1621 20.3005 15.2604 19.0093 16.9875C17.7182 18.7147 15.9033 19.9782 13.8354 20.5896C11.7674 21.201 9.55726 21.1276 7.53447 20.3803C5.51168 19.633 3.78465 18.2518 2.61096 16.4428C1.43727 14.6338 0.879791 12.4938 1.02168 10.342C1.16356 8.19029 1.99721 6.14205 3.39828 4.5028C4.79935 2.86354 6.69279 1.72111 8.79619 1.24587C10.8996 0.770634 13.1003 0.988061 15.07 1.86572" stroke="#091429" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M21 3.00574L11 13.0157L8 10.0157" stroke="#091429" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg></span> {{ str_replace("_"," ",ucfirst($Featureskey)) }} : {{ ucfirst($Featuresvalue)}}</li>
+                      </svg></span> {{ str_replace("_"," ",ucfirst($Featureskey)) }}</li>
 
 
                                   @endforeach
@@ -413,13 +455,13 @@ process in our able hands</h6>
 
                      @if(Auth::user() != null)
                       <div class="price-button p-3">
-                      <a href='{{$url}}'>Purchase</a>
+                      <a class="btn btn-primary btn-block" href='{{$url}}'>Purchase</a>
                       </div>
                       @endif
 
                       @if(Auth::user() == null)
                       <div class="price-button p-3">
-                      <a href="/register">Sign up</a>
+                      <a class="btn btn-primary btn-block" href="/register">Sign up</a>
                       </div>
                       @endif
           @endforeach
@@ -436,6 +478,8 @@ process in our able hands</h6>
             </div>
         </div>
         </section>
+
+
 
 @stop
 
