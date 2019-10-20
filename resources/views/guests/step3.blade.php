@@ -211,7 +211,7 @@
 
     .footer-next button {
         width: 100%;
-        height: 10%;
+        height: 100%;
         font-size: 1.5em;
         border: none;
         color: white;
