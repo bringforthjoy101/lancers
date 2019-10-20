@@ -328,7 +328,7 @@
 </ul>
 
 <div class="price-button p-3">
-<a href="{{ route('register') }}" class="btn btn-primary btn-block">Sign up for free</a>
+<a href="{{ route('register') }}" class="btn btn-primary btn-block">Purchase</a>
 </div>
 </div>
 </div>
@@ -364,7 +364,7 @@
 </ul>
 
 <div class="price-button p-3">
-<a href="{{ route('register') }}" class="btn btn-primary btn-block">Sign up for free</a>
+<a href="{{ route('register') }}" class="btn btn-primary btn-block">Purchase</a>
 </div>
 </div>
 </div>
