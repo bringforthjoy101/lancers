@@ -76,7 +76,7 @@
 
                         @if(sizeof(session('editErrors'))  <= 1)
 
-                                <p style="color:red;">{{session('editErrors')[0]}}<p/>
+                                <p style="color:red;">{{session('editErrors')[0]}}</p>
                         @endif
 
                      @endif

@@ -117,7 +117,7 @@ Route::group(['middleware' => 'auth:web'], function(){
     Route::get('/estimate/create/step1', 'EstimateController@step1');
     // Route::get('/estimate/create/step2', 'EstimateController@step2');
     // Route::get('/estimate/create/step3', 'EstimateController@step3');
-    // Route::get('/estimate/create/step4', 'EstimateController@step4');
+    // Route::get('/estimate/create/step4', 'EstimateController@step4'); 
     // Route::get('/estimate/create/step5', 'EstimateController@step5');
     Route::post('/estimate/create/step2', 'EstimateController@step2');
     Route::post('/estimate/create/step3', 'EstimateController@step3');

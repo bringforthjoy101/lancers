@@ -47,7 +47,7 @@ class InvoiceNotification extends Notification
                     ->greeting("Hello ".$data->name)
                     ->line($data->user." has sent you an invoice of the sum of NGN".$data->amount." for the project ".$data->project)
                     ->line("Use the button below to view the invoice and make payment")
-                    ->action("View Invoice", $this->data->invoice_url))
+                    ->action("View Invoice", $this->data->invoice_url)
                     ->line('Ignore this message if you think it is a mistake');
     }
 

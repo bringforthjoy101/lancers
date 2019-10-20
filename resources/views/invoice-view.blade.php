@@ -679,7 +679,7 @@ tbody, .bold {
                     <div class="col-6 mb-4">
                         <h1> Invoice </h1>
                         <address contenteditable="">
-                            <p> <b>Project:</b> branding and marketing</p>
+                            <p> <b>Project:</b> branding and marketing</p> 
                             <p> <b>Lancer:</b> Endurance dan-jumbo</p>
                             <p> <b>Email:</b> Edanjumbo@gmail.com</p>
                             <p> <b>Address:</b> Accra, Ghana</p>

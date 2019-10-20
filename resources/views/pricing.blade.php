@@ -2,368 +2,195 @@
 @extends('layouts.app')
 
 @section('styles')
+
  <style>
- 	:root{
-				--primary-color: #091429;
-				--secondary-color: #0ABAB5;
-				--dark-color: #262626;
-				--light-color: #B1B1B1;
-			}
-			   /****************************/
-			  /*------- main styles ------*/
-			 /****************************/
-			body{
-				font-family: 'Open Sans', sans-serif !important;
-				font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)))  !important;
-			}
-
-			h1,
-			.h1{
-			  	font-weight: 600 !important;
-				font-size: 3.5rem;
-			  	font-size: calc(38px + 4 * (100vw - 767px) / 700);
-			  	line-height: 120% !important;
-				vertical-align: top !important;
-			}
-			h2,
-			.h2 {
-			  	font-size: 3.2rem;
-			  	font-size: calc(28px + 4 * (100vw - 767px) / 700);
-			  	font-weight: 700;
-			}
-			h3,
-			.h3 {
-			  	font-size: 2rem !important;
-			  	font-size: calc(24px + 4 * (100vw - 767px) / 700) !important;
-			  	font-weight: 600 !important;
-				line-height: 150% !important;
-			}
-			h4,
-			.h4 {
-			  font-size: 1.6rem;
-			}
-			h5,
-			.h5 {
-			  	font-size: 1.2rem;
-				font-weight: 700 !important;
-				line-height: 150% !important;
-			}
-			h6,
-			.h6 {
-			  font-size: 1.4rem;
-			}
-			p{
-				font-size: 16px !important;
-				font-weight: normal;
-				line-height: 32px;
-			}
-			p.bold{
-				font-size: 18px !important;
-				font-weight: 700;
-				line-height: 32px;
-			}
-			.text-primary{
-				color: var(--primary-color) !important;
-			}
-			.text-secondary{
-				color: var(--secondary-color) !important;
-			}
-			.text-dark{
-				color: var(--dark-color) !important;
-			}
-			.text-light{
-				color: var(--light-color) !important;
-			}
-			.bg-primary{
-				background-color: var(--primary-color) !important;
-			}
-			.bg-secondary{
-				background-color: var(--secondary-color) !important;
-			}
-			.bg-light{
-				background-color: var(--light-color) !important;
-			}
-			.bg-dark{
-				background-color: var(--dark-color) !important;
-			}
-			.btn{
-				border: none !important;
-				display: inline-block;
-				position: relative;
-				overflow: hidden;
-				transition: all ease-in-out .5s;
-			}
-			.btn::after {
-				content: "";
-				display: block;
-				position: absolute;
-				top: 0;
-				left: 25%;
-				height: 100%;
-				width: 40%;
-				background-color: #000;
-				border-radius: 50%;
-				opacity: 0;
-				pointer-events: none;
-				transition: all ease-in-out 1s;
-				transform: scale(5, 5);
-			}
-			.btn:active::after {
-				padding: 0;
-				margin: 0;
-				opacity: .2;
-				transition: 0s;
-				transform: scale(0, 0);
-			}
-			.btn-primary{
-				background-color: var(--primary-color) !important;
-			}
-			.btn-secondary{
-				background-color: var(--secondary-color) !important;
-			}
-			.btn-primary-outline{
-				background-color: transparent !important;
-				color: var(--primary-color)  !important;
-				border: 1px solid var(--primary-color)  !important;
-			}
-			.btn-secondary-outline{
-				background-color: transparent !important;
-				color: var(--secondary-color)  !important;
-				border: 2px solid var(--secondary-color)  !important;
-			}
-			.btn-primary:hover, .btn-secondary:hover, .btn-primary-outline:hover, .btn-secondary-secondary:hover{
-				border-color: inherit !important;
-				opacity: 0.8 !important;
-			}
-
-
- /*------Navbar------------*/
-
-			.navbar-main {
-			    background-color: var(--primary-color);
-			}
-			.navbar-main .navbar-brand,
-			.navbar-main .navbar-text {
-			    color: rgba(255, 255, 255, 0.9);
-			}
-			.navbar-main .navbar-nav .nav-link {
-				font-size: 1rem;
-			    color: rgba(255, 255, 255, 0.8);
-			}
-			.navbar-main .nav-item.active .nav-link,
-			.navbar-main .nav-item:hover .nav-link {
-			    color: #ffffff;
-			}
-
-			/* for navbar toggler design */
-			.icon-bar {
-				width: 22px;
-				height: 2px;
-				background-color: #B6B6B6;
-				display: block;
-				transition: all 0.2s;
-				margin-top: 4px
-			}
-			.navbar-toggler {
-			  border: none;
-			  background: transparent !important;
-			}
-			.navbar-toggler:focus{
-				outline: none !important;
-			}
-
-			/* navbar toggler animation*/
-
-			.navbar-toggler .top-bar {
-			  transform: rotate(45deg);
-			  transform-origin: 10% 10%;
-			}
-			.navbar-toggler .middle-bar {
-			  opacity: 0;
-			}
-			.navbar-toggler .bottom-bar {
-			  transform: rotate(-45deg);
-			  transform-origin: 10% 90%;
-			}
-			.navbar-toggler.collapsed .top-bar {
-			  transform: rotate(0);
-			}
-			.navbar-toggler.collapsed .middle-bar {
-			  opacity: 1;
-			}
-			.navbar-toggler.collapsed .bottom-bar {
-			  transform: rotate(0);
-			}
-
-
-
-	.pricing{
-			width: 100%;
-			padding: 70px;
-	}
-
-
-	.pricing .title-header{
-			text-align: center
-	}
-
-	.pricing .title-header h1{
-			font-size: 65px;
-			padding-left: 160px;
-			padding-right: 160px;
-	}
-	.pricecol{
-			height: 450px;
-			border: 1px solid rgb(197, 132, 132);
-			position: relative;
-	}
-	.pricetext{
-			text-align: center;
-			font-size: 30px;
-
-	}
-	.pricenumber{
-			text-align: center;
-			font-size: 48px;
-
-	}
-
-	.price-button{
-			width: 100%;
-			position: absolute;
-			bottom: 2%;
-			left:0;
-	}
-
-	.pricelist{
-			list-style: none;
-	}
-	.pricelist li{
-			margin: 5px auto
-	}
-	.pricelist li span{
-			margin: auto 5px
-	}
-
-	.price-button a{
-			background: #0ABAB5;
-			color: #fff;
-			border: none
-	}
-
-
-	.price-button a:hover{
-			background: rgb(9, 155, 150);
-	}
-
-	.pricenumber::before{
-			font-size: 17px;
-			content: '\0024';
-			position: relative;
-			left: -2px;
-			top: -25px
-	}
-
-	.pricenumber{
-			position: relative;
-	}
-
-	.pricenumber p{
-			font-size: 17px;
-			display: inline;
-	}
-	article {
-			background-color:#091429;
-			padding: 25px;
-	}
-
-	footer {
-			background-color: white;
-			padding: 25px;
-	}
-
-	.enter-div {
-			text-align: center;
-			color: white;
-			font-weight: normal;
-			font-style: normal;
-
-	}
-
-	#enter-line {
-			line-height: 65px;
-	}
-
-	#lancer {
-
-	font-style: normal;
-	font-weight: normal;
-	font-family: 'Pacifico', cursive;
-	font-size: 20px;
-	}
-
-	#btn-sub {
-			background: #0ABAB5;
-			border-radius: 4px;
-			color: #FFFFFF;
-	}
-
-	#email-input {
-	background: #FFFFFF;
-	border: 1px solid #C4C4C4;
-	box-sizing: border-box;
-	border-radius: 2px;
-	color: black;
-	}
-
-	.btn {
-	background: #091429;
-	border: 1px solid #0ABAB5 ;
-	color: #0ABAB5;
-	box-sizing: border-box;
-	border-radius: 6px;
-	}
-
-	.link {
-			color: black;
-	}
-
-
-	@media only screen and (max-width: 600px) {
-			.pricing .title-header h1{
-					padding: 0;
-					font-size: 35px
-			}
-			.pricing{
-					padding: 20px;
-			}
-
-
-
-			.pricecol{
-					margin: 20px auto
-			}
-		}
-
-		/*-----------footer list--------*/
-
-			.list-unstyled li a{
-				font-size: 17px !important;
-				transition: 0.25s !important;
-				font-style: normal;
-				font-weight: normal;
-			}
-
-			.list-unstyled li a:hover{
-				color: gray !important;
-				text-decoration: none;
-			}
+ 	.navbar-brand{
+                font-family: Pacifico;
+                color: white
+                }
+            .navbar-brand h3 span{
+                color: #0ABAB5
+            }
+            .navbar-brand :hover{
+                color: rgb(255, 255, 255);
+            }
+            .pricing-header{
+                background: #091429
+            }
+            .pricing-header .nav-link{
+            font-size: 15px;
+            color: aliceblue;
+            }
+            .navbar-collapse{
+                justify-content: flex-end
+            }
+            .pricing{
+                width: 100%;
+                padding-top: 70px;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding: auto;
+            }
+            .pricing .title-header{
+                text-align: center
+            }
+            .pricing .title-header h1{ 
+                font-size: 65px;
+                padding-left: 160px;
+                padding-right: 160px;
+            }
+            .pricecol{
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+                margin-top: 20px;
+                height: 450px;
+                border: 1px solid #000000;
+                box-sizing: border-box;
+                border-radius: 6px;
+                position: relative;
+                margin-bottom: 40px;
+                width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .pricetext{
+                text-align: center;
+                font-size: 30px;
+            }
+            .pricenumber{
+                text-align: center;
+                font-size: 48px;
+                
+            }
+            .price-button{
+                width: 100%;
+                position: absolute;
+                bottom: 2%;
+                left:0;
+                padding-left: 28px !important;
+                padding-right: 28px !important;
+            }
+            .pricelist{
+                list-style: none;
+            }
+            .pricelist li{
+                margin: 5px auto
+            }
+            .pricelist li span{
+                margin: auto 5px
+            }
+            .button:hover {
+                color: white;
+            }
+            .price-button a{
+                color: #fff;
+                border: none
+            }
+            .price-button a{
+                background-color: #0ABAB5 ;
+            }
+            .price-button a:hover{
+                background: rgb(9, 155, 150);
+            }
+            .pricenumber::before{
+                font-size: 17px;
+                content: '\0024';
+                position: relative;
+                left: -2px;
+                top: -25px
+            }
+            .pricenumber{
+                position: relative;
+            }
+            .pricenumber p{
+                font-size: 17px;
+                display: inline;
+            }
+            article {
+                background-color:#091429;
+                padding: 25px;
+            }
+            footer {
+                background-color: white;
+                padding: 25px;
+            }
+            .enter-div {
+                text-align: center;
+                color: white;
+                font-weight: normal;
+                font-style: normal;
+            }
+            .enter-div > h6 {
+                font-weight: normal;
+            }
+            #enter-line {
+                line-height: 65px;
+            }
+            #lancer {
+            font-style: normal;
+            font-weight: normal;
+            font-family: 'Pacifico', cursive;
+            font-size: 20px;
+            }
+            #btn-sub {
+                background: #0ABAB5;
+                border-radius: 4px;
+                border-width: 0px;
+                color: #FFFFFF;
+            }
+            #email-input {
+                background: #FFFFFF;
+                border: 1px solid #C4C4C4;
+                box-sizing: border-box;
+                border-radius: 2px;
+                color: black;
+                font-size: 0.8em;
+                padding: 5px;
+                }
+            .btn {
+                border: 1px solid #0ABAB5 ;
+                color: #0ABAB5;
+                box-sizing: border-box;
+                border-radius: 6px;
+                }
+            .link {
+                color: black;
+            }
+            .card {
+                background: #FFFFFF;
+                border: none;
+                width: 350px !important;
+                max-width: 350px !important;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            ul {
+                padding: 0% !important;
+            }
+            
+            #btn-sub:hover {
+                background-color: rgb(9, 155, 150);
+            }
+            
+            #navbarNavAltMarkup a:hover {
+                color: #0ABAB5 !important;
+            }
+            span.avoidwrap { display:inline-block; }
+            @media only screen and (max-width: 600px) {
+                .pricing .title-header h1{
+                    font-size: 35px
+                }
+                .pricecol{
+                    margin: 20px auto
+                }
+            }
+			
  </style>
 @endsection
 
 @section('header')
     	<header>
-			<nav class="navbar navbar-expand-lg navbar-main">
+			<nav class="pricing-header navbar pl-5 pr-5 navbar-expand-lg ">
 				<div class="container">
 					<a class="navbar-brand" href="#">
 						<img src="{{ asset('images/svg/logo-white.svg') }}" class="img img-responsive" height="30" width="auto">
@@ -436,7 +263,7 @@
 </ul>
 
 <div class="price-button p-3">
-<a href="#" class="btn btn-primary btn-block">Sign up for free</a>
+<a href="{{ route('register') }}" class="btn btn-primary btn-block">Sign up for free</a>
 </div>
 </div>
 </div>
@@ -469,7 +296,7 @@
 </ul>
 
 <div class="price-button p-3">
-<a href="#" class="btn btn-primary btn-block">Sign up for free</a>
+<a href="{{ route('register') }}" class="btn btn-primary btn-block">Sign up for free</a>
 </div>
 </div>
 </div>
@@ -505,7 +332,7 @@
 </ul>
 
 <div class="price-button p-3">
-<a href="#" class="btn btn-primary btn-block">Sign up for free</a>
+<a href="{{ route('register') }}" class="btn btn-primary btn-block">Sign up for free</a>
 </div>
 </div>
 </div>
@@ -525,7 +352,7 @@ process in our able hands</h6>
 
             <div class="container">
                 <div class="title-header">
-                    <h1>Choose a plan that works for you</h1>
+                    
                 </div>
                 <div class="row mt-5 pt-5">
 
@@ -609,15 +436,6 @@ process in our able hands</h6>
             </div>
         </div>
         </section>
-        <article>
-                <div class="enter-div">
-                    <h4 id="enter-line">Enterprise ready tools</h4>
-                    <h6>with dedicated support and quick and consistent deolverance of new features, you can trust your<br>
-                    process in our able hands</h6>
-                    <br>
-                    <button type="button" class="btn" >Contact Sales</button>
-                </div>
-        </article>
 
 @stop
 
@@ -664,7 +482,7 @@ process in our able hands</h6>
 								<label for="staticEmail2" class="sr-only">Email</label>
 								<input type="email" class="form-control" id="staticEmail2" value="" placeholder="Email Address" required>
 							</div>
-							<button type="submit" class="btn btn-secondary mb-2">Subscribe</button>
+							<button type="submit" class="btn btn-secondary mb-2" id="btn-sub">Subscribe</button>
 						</form>
 					</div>
 				</div>
@@ -678,6 +496,12 @@ process in our able hands</h6>
 				</div>
 			</div>
 		</footer>
+
+        <script>
+                document.querySelector('.button').addEventListener('click', () => {
+                            location.href = "{{ url('/guest/contact') }}"
+                        })
+                </script>
 @stop
 
 
